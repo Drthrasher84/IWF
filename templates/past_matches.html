@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Past Matches</title>
+</head>
+<body>
+    <h1>Past Matches</h1>
+    {% if matches %}
+        <ul>
+            {% for match in matches %}
+                <li>
+                    <strong>Winner:</strong> {{ match.winner }}
+                    <ul>
+                        {% for event in match.events %}
+                            <li>{{ event }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No past matches found.</p>
+    {% endif %}
+    <a href="/wrestlers">Back to Wrestler List</a>
+	<a href="/match_summary">View Match Summary</a>
+	<a href="/past_matches">View Past Matches</a>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Wrestlers</title>
+    <style>
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        h1 {
+            text-align: center;
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Available Wrestlers</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Strength</th>
+            <th>Agility</th>
+            <th>Charisma</th>
+            <th>Actions</th>
+        </tr>
+        {% for wrestler in wrestlers %}
+        <tr>
+            <td>{{ wrestler.name }}</td>
+            <td>{{ wrestler.strength }}</td>
+            <td>{{ wrestler.agility }}</td>
+            <td>{{ wrestler.charisma }}</td>
+            <td>
+                <a href="{{ url_for('profile', name=wrestler.name) }}">View Profile</a> |
+                <a href="{{ url_for('edit_wrestler', name=wrestler.name) }}">Edit</a>
+                <form action="{{ url_for('delete_wrestler', name=wrestler.name) }}" method="post" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+	<br><br>
+	<a href="/battle_royal">Start a Battle Royal Match</a>
+    <a href="/create_wrestler">Create New Wrestler</a>
+    <a href="/run_match">Run a Match</a>
+    <a href="/">Back to Home</a>
+	
+</body>
+</html>
+

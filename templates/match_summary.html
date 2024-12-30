@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Match Summary</title>
+</head>
+<body>
+    <h1>Match Summary</h1>
+    {% if match %}
+        <h2>Winner: {{ match.winner }}</h2>
+        <ul>
+            {% for event in match.events %}
+                <li>{{ event }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No match results found.</p>
+    {% endif %}
+    <a href="/wrestlers">Back to Wrestler List</a>
+    <a href="/past_matches">View Past Matches</a>
+	<a href="/match_summary">View Match Summary</a>
+
+</body>
+</html>

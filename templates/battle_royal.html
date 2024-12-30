@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Battle Royal</title>
+</head>
+<body>
+    <h1>Battle Royal Match</h1>
+    <form method="post">
+        <p>Select wrestlers for the Battle Royal:</p>
+        <ul>
+            {% for wrestler in wrestlers %}
+                <li>
+                    <input type="checkbox" name="wrestlers" value="{{ loop.index0 }}">
+                    {{ wrestler.name }} (Strength: {{ wrestler.strength }}, Agility: {{ wrestler.agility }}, Charisma: {{ wrestler.charisma }})
+                </li>
+            {% endfor %}
+        </ul>
+        <button type="submit">Start Battle Royal</button>
+    </form>
+    <a href="/wrestlers">Back to Wrestler List</a>
+</body>
+</html>
